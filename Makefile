@@ -14,17 +14,15 @@ INPUT_FILE := resume.tex
 OUTPUT_FILE := resume.pdf
 
 build: $(INPUT_FILE) ## Build the PDF from the LaTeX source
-	@(\
-		set -e; \
-		TMP_DIR=$$(mktemp -d); \
-		trap 'rm -rf $$TMP_DIR; echo "Cleaning up temporary directory"' EXIT; \
-		echo "Creating temporary directory: $$TMP_DIR"; \
-		mkdir -p $$TMP_DIR; \
-		docker run --rm \
-			-v $(shell pwd):/data:ro \
-			-v $$TMP_DIR:/tmp:rw \
-			$(IMAGE):$(IMAGE_TAG)@$(IMAGE_SHA) \
-			pdflatex -output-directory=/tmp /data/$(INPUT_FILE); \
-		cp $$TMP_DIR/$(OUTPUT_FILE) .; \
-		echo "Creating PDF at $(OUTPUT_FILE)"; \
-	)
+	set -e; \
+	TMP_DIR=$$(mktemp -d); \
+	trap 'rm -rf $$TMP_DIR; echo "Cleaning up temporary directory"' EXIT; \
+	echo "Creating temporary directory: $$TMP_DIR"; \
+	mkdir -p $$TMP_DIR; \
+	docker run --rm \
+		-v $(shell pwd):/data:ro \
+		-v $$TMP_DIR:/tmp:rw \
+		$(IMAGE):$(IMAGE_TAG)@$(IMAGE_SHA) \
+		pdflatex -output-directory=/tmp /data/$(INPUT_FILE); \
+	cp $$TMP_DIR/$(OUTPUT_FILE) .; \
+	echo "Creating PDF at $(OUTPUT_FILE)"; \
