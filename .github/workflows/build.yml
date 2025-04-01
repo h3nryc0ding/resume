@@ -1,0 +1,30 @@
+name: Validate Resume Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  validate-pdf:
+    runs-on: ubuntu-latest
+    container: texlive/texlive:latest@sha256:b09360744230661858dc48526b9f20aa1269dba37d4e5310e3150b8f93584e58
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Rename existing PDF
+        run: mv resume.pdf resume.bak.pdf
+
+      - name: Build new PDF
+        run: pdflatex resume.tex
+
+      - name: Install poppler-utils
+        run: apt-get update && apt-get install -y poppler-utils
+
+      - name: Fail if PDF is outdated
+        run: |
+          pdftotext resume.bak.pdf
+          pdftotext resume.pdf
+          diff resume.bak.txt resume.txt || (echo "PDF is outdated!" && exit 1)
