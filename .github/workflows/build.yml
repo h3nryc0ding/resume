@@ -1,0 +1,15 @@
+name: Build PDF
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    container: texlive/texlive:latest@sha256:b09360744230661858dc48526b9f20aa1269dba37d4e5310e3150b8f93584e58
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: pdftex resume.tex
