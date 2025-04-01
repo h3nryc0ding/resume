@@ -1,0 +1,226 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\usepackage{calc} % added
+
+\newcommand{\resumeSubSubheadingLeft}[2]{% % added
+\begin{description}[leftmargin=!,labelwidth=\widthof{\small\bfseries #1}]
+    \item[\small #1]{\textit{\small  #2}}
+\end{description}
+}
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge \scshape Henry Richter} \\ \vspace{1pt}
+    \small +49 17657 660097 $|$
+    \href{mailto:hr.richterhenry@gmail.com}{\underline{hr.richterhenry@gmail.com}} $|$ 
+    \href{https://github.com/h3nryc0ding}{\underline{github.com/h3nryc0ding}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Dresden University of Technology}{Dresden, Saxony}
+      {Diploma in Computer Science}{October 2021 -- Present}
+      \resumeItemListStart
+        \resumeItem{Estimated Graduation Date: \textit{October 2026}}
+        \resumeItem{Current GPA: \textit{German 1.5 $\approx$ GPA 3.5}}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Grammer School}{Freital, Saxony}
+      {General Higher Education Entrance Qualification (Abitur)}{July 2013 -- June 2021}
+  \resumeSubHeadingListEnd
+
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+    {Full-Stack Developer Working Student}{October 2022 -- Present}
+    {Uniwunder}{Dresden, Saxony}
+    \resumeItemListStart
+      \resumeItem{Frontend Development: Utilized Angular with TypeScript and RxJS to create dynamic and responsive web interfaces.}
+      \resumeItem{Backend Development: Leveraged Spring Boot with Kotlin, Hibernate, and JPA for robust server-side solutions.}
+      \resumeItem{Mobile Development: Ported parts of the frontend to ios and android using Ionic, enhancing accessibility across devices.}
+      \resumeItem{DevOps: Set up a build and deployment pipeline to streamline development processes of the mobile application.}
+      \resumeItem{Implemented push notifications using Firebase Cloud Messaging, improving user engagement and retention.}
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {First-Level-Support Working Student}{June 2021 -- September 2022}
+      {Jungheinrich}{Wilsdruff, Saxony}
+      \resumeItemListStart
+        \resumeItem{Provided on-site setup and support for both hardware and software, ensuring optimal system performance.}
+        \resumeItem{Configured and set up workplace environments to facilitate efficient workflows.}
+        \resumeItem{Created and maintained MS Excel macros to automate tasks and improve productivity.}
+        \resumeItem{Utilized tools such as a custom ticketing system and MS Active Directory for effective issue tracking and user management.}
+      \resumeItemListEnd
+      
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+      {\textbf{Fullstack Bare Metal Deployment} $|$ \emph{Spring Boot, SvelteKit, Keycloak, Docker, Kubernetes, Helm, Github Actions}}{}
+      \resumeItemListStart
+          \resumeItem{Engineered a full-stack web application, leveraging Spring Boot and SvelteKit, deployed on an Oracle-hosted Ubuntu VM for optimal performance and control.}
+          \resumeItem{Established a robust microk8s cluster to seamlessly deploy and manage the application, enhancing scalability and reliability.}
+          \resumeItem{Configured and deployed Keycloak as an OAuth2 provider, enabling Single Sign-On and identity brokering.}
+          \resumeItem{Incorporated SSL encryption using Let's Encrypt and Cert-Manager to ensure secure data transmission and protect user information.}
+          \resumeItem{Utilized Github Actions to automate efficient CI/CD pipeline that automates the processes of linting, testing, building, and deploying the application, significantly reducing manual intervention and potential errors.}
+      \resumeItemListEnd
+      \iffalse
+          \resumeProjectHeading
+          {\textbf{Simple Paintball} $|$ \emph{Spigot API, Java, Maven, TravisCI, Git}}{May 2018 -- May 2020}
+          \resumeItemListStart
+            \resumeItem{Developed a Minecraft server plugin to entertain kids during free time for a previous job}
+            \resumeItem{Published plugin to websites gaining 2K+ downloads and an average 4.5/5-star review}
+            \resumeItem{Implemented continuous delivery using TravisCI to build the plugin upon new a release}
+            \resumeItem{Collaborated with Minecraft server administrators to suggest features and get feedback about the plugin}
+          \resumeItemListEnd
+      \fi
+    \resumeSubHeadingListEnd
+
+
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Kotlin, Java, Python, SQL, JavaScript/TypeScript, HTML/CSS} \\
+     \textbf{Frameworks}{: Spring Boot, Hibernate, Angular, Ionic, Firebase Cloud Messaging} \\
+     \textbf{Developer Tools}{: Git, GitHub Actions, Bitbucket Pipelines, Docker, Kubernetes, Jetbrains IDEs, VS Code} \\
+     \iffalse
+     \textbf{Libraries}{: RxJS } \\
+     \fi
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}
