@@ -14,9 +14,17 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
 
-      - name: Build PDF
+      - name: Rename existing PDF
+        run: mv resume.pdf resume.bak.pdf || true
+
+      - name: Build new PDF
         run: pdflatex resume.tex
+
+      - name: Install poppler-utils
+        run: apt-get update && apt-get install -y poppler-utils
 
       - name: Fail if PDF is outdated
         run: |
-          git diff --exit-code resume.pdf || (echo "PDF is outdated. Please run pdflatex to update it." && exit 1)
+          pdftotext resume.bak.pdf
+          pdftotext resume.pdf
+          diff resume.bak.txt resume.txt || (echo "PDF is outdated!" && exit 1)
