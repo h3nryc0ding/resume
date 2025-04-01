@@ -1,4 +1,4 @@
-name: Validate Resume Build
+name: Validate Generated PDF/PNG # fails if the commited PDF/PNG is not up to date
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   pull_request:
 
 jobs:
-  validate-pdf:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code

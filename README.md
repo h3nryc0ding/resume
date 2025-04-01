@@ -13,8 +13,9 @@ The resume is designed to be clean, professional, and easy to read. It includes 
 
 ## Getting Started
 
-To compile the LaTeX code and generate the PDF resume, you need to have `docker` installed. Simply run the following command in the root directory of the repository:
+To compile the LaTeX code and generate the PDF resume, you need to have `docker` installed. Simply run the following commands in the root directory of the repository:
 
 ```bash
-make build
+make pdf # Generate PDF
+make png # Generate PNG
 ```
