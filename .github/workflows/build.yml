@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-      - run: pdftex resume.tex
+      - run: pdflatex resume.tex
