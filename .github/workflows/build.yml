@@ -1,17 +1,22 @@
-name: Build PDF
+name: Validate Resume Build
 
 on:
   push:
     branches:
       - main
   pull_request:
-  workflow_dispatch:
 
 jobs:
-  build-pdf:
+  validate-pdf:
     runs-on: ubuntu-latest
     container: texlive/texlive:latest@sha256:b09360744230661858dc48526b9f20aa1269dba37d4e5310e3150b8f93584e58
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-      - run: pdflatex resume.tex
+
+      - name: Build PDF
+        run: pdflatex resume.tex
+
+      - name: Fail if PDF is outdated
+        run: |
+          git diff --exit-code resume.pdf || (echo "PDF is outdated. Please run pdflatex to update it." && exit 1)
