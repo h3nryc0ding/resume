@@ -27,7 +27,7 @@ pdf: resume.tex ## Build the PDF from the LaTeX source
 	cp $$TMP_DIR/resume.pdf generated/; \
 	echo "Creating PDF at $(shell pwd)/generated/resume.pdf"
 
-png: pdf
+png: pdf ## Convert the PDF to PNG using pdftoppm
 	set -e; \
 	TMP_DIR=$$(mktemp -d); \
 	trap 'rm -rf $$TMP_DIR; echo "Cleaning up temporary directory"' EXIT; \
