@@ -18,14 +18,13 @@ build: $(INPUT_FILE) ## Build the PDF from the LaTeX source
 		set -e; \
 		TMP_DIR=$$(mktemp -d); \
 		trap 'rm -rf $$TMP_DIR; echo "Cleaning up temporary directory"' EXIT; \
-		echo "Created temporary directory: $$TMP_DIR"; \
-		mkdir -p $$TMP_DIR/$(PACKAGE); \
+		echo "Creating temporary directory: $$TMP_DIR"; \
+		mkdir -p $$TMP_DIR; \
 		docker run --rm \
 			-v $(shell pwd):/data:ro \
 			-v $$TMP_DIR:/tmp:rw \
-			-w /data \
-			$(DOCKER_IMAGE):$(IMAGE_TAG)@$(IMAGE_SHA) \
-			pdflatex -output-directory=/tmp $(INPUT_FILE); \
+			$(IMAGE):$(IMAGE_TAG)@$(IMAGE_SHA) \
+			pdflatex -output-directory=/tmp /data/$(INPUT_FILE); \
 		cp $$TMP_DIR/$(OUTPUT_FILE) .; \
-		echo "PDF created at $(OUTPUT_FILE)"; \
+		echo "Creating PDF at $(OUTPUT_FILE)"; \
 	)
