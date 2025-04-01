@@ -13,17 +13,8 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
 
-      - name: Rename existing PDF
-        run: mv resume.pdf resume.bak.pdf
+      - name: Build new PNG
+        run: make png
 
-      - name: Build new PDF
-        run: make build
-
-      - name: Install poppler-utils
-        run: sudo apt-get update && sudo apt-get install -y poppler-utils
-
-      - name: Fail if PDF is outdated
-        run: |
-          pdftotext resume.bak.pdf
-          pdftotext resume.pdf
-          diff resume.bak.txt resume.txt || (echo "PDF is outdated!" && exit 1)
+      - name: Fail if PNG is not up to date
+        run: git diff --exit-code -a generated/resume-*.png
