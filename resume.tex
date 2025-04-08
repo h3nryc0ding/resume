@@ -62,151 +62,159 @@
 
 %-------------------------
 % Custom commands
-\newcommand{\resumeItem}[1]{
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeItemShort}[1]{
   \item\small{
     {#1 \vspace{-2pt}}
   }
 }
 
+% Just in case someone needs a heading that does not need to be in a list
+\newcommand{\resumeHeading}[4]{
+    \begin{tabular*}{0.99\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
 \newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
+  \vspace{-1pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeProjectSubheading}[2]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}}
+      \textbf{#1} $|$ \textit{\small#2} \\
+    \end{tabular*}\vspace{-5pt}
 }
 
 \newcommand{\resumeSubSubheading}[2]{
-    \item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{-5pt}
 }
 
-\newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
-}
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
 
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\renewcommand{\labelitemii}{$\circ$}
 
-\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
-
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
 \newcommand{\resumeItemListStart}{\begin{itemize}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
-\usepackage{calc} % added
-
-\newcommand{\resumeSubSubheadingLeft}[2]{% % added
-\begin{description}[leftmargin=!,labelwidth=\widthof{\small\bfseries #1}]
-    \item[\small #1]{\textit{\small  #2}}
-\end{description}
-}
 
 \begin{document}
 
 %----------HEADING----------
-% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
-%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
-% \end{tabular*}
-
-\begin{center}
-	\textbf{\Huge \scshape Henry Richter} \\ \vspace{1pt}
-	\small +49 17657 660097 $|$
-	\href{mailto:hr.richterhenry@gmail.com}{\underline{hr.richterhenry@gmail.com}} $|$
-	\href{https://github.com/h3nryc0ding}{\underline{github.com/h3nryc0ding}}
-\end{center}
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{{\Large Henry Richter}} & \href{mailto:hr.richterhenry@gmail.com}{hr.richterhenry@gmail.com}\\
+  \href{https://github.com/h3nryc0ding}{github.com/h3nryc0ding} & \href{tel:+4917657660097}{+49 176 57660097} \\
+\end{tabular*}
 
 %-----------EDUCATION-----------
 \section{Education}
-\resumeSubHeadingListStart
-\resumeSubheading
-{Diploma in Computer Science}{October 2021 -- September 2026}
-{Dresden University of Technology}{Dresden, Germany}
-\resumeItemListStart
-\resumeItem{Grade average: 1.5 (German grading, ~3.7–4.0 GPA)}
-\resumeItemListEnd
-\resumeSubHeadingListEnd
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Dresden University of Technology}{Dresden, Germany}
+      {Diploma in Computer Science}{Oct 2021 -- Sep 2026}
+      \resumeItemListStart
+      	\resumeItem{Grade average}
+      		{1.5 $\approx$ 3.7 GPA}
+			\resumeItemListEnd
+  \resumeSubHeadingListEnd
 
 %-----------EXPERIENCE-----------
 \section{Experience}
-\resumeSubHeadingListStart
+	\resumeSubHeadingListStart
 
-\resumeSubheading
-{Associate Software Developer Intern - Kubernetes}{September 2024 -- March 2025}
-{ServiceNow}{Dublin, Ireland}
-\resumeItemListStart
-\resumeItem{Kubernetes Distribution: Refactored Ansible deployment pipeline by extracting reusable components into shared collections/plugins and improving integration with the Configuration Management Database (CMDB), a system for tracking IT assets and configurations. Rewrote playbooks to replace shell/command tasks with public Ansible plugins for better reliability.}
-\resumeItem{Infrastructure Bootstrapping: Deployed core components via Flux using Helm charts, including Node/GPU Feature Discovery (NFD/GFD) and Trivy for misconfiguration/security scanning.}
-\resumeItem{DevOps \& Testing: Optimized GitLab Kubernetes integration test pipeline, reducing runtime by 30\% and improving test accuracy. Created debug images for internal Docker builds to simplify troubleshooting.}
-\resumeItem{Internal Tooling: Developed a Go authentication package for CMDB, using Cobra for CLI functionality and integrating with Keychain, 1Password, and an in-house secret store for secure credential management.}
-\resumeItemListEnd
+		\resumeSubheading
+			{ServiceNow}{Dublin, Ireland}
+			{Associate Software Engineer Intern}{Sep 2024 -- Mar 2025}
+			\resumeItemListStart
+				\resumeItem{Kubernetes Distribution}
+					{Refactored Ansible pipeline by replacing shell tasks with public plugins and modularizing playbooks into shared collections, improving reliability. Enhanced CMDB integration to sync cluster capabilities and retrieve configurations for Kubernetes.}
+				\resumeItem{Infrastructure Bootstrapping}
+					{Deployed core components via Flux using Helm charts, including Node/GPU Feature Discovery (NFD/GFD) and Trivy for misconfiguration/security scanning.}
+				\resumeItem{DevOps \& Testing}
+					{Optimized GitLab Kubernetes integration test pipeline, reducing runtime by 30\% and improving test accuracy. Created debug images for internal Docker builds to simplify troubleshooting.}
+				\resumeItem{Internal Tooling}
+					{Developed a Go authentication package for CMDB, using Cobra for CLI functionality and integrating with Keychain, 1Password, and an in-house secret store for secure credential management.}
+			\resumeItemListEnd
 
-\resumeSubheading
-{Full-Stack Developer Working Student – Web Applications}{October 2022 -- October 2024}
-{Uniwunder}{Dresden, Germany}
-\resumeItemListStart
-\resumeItem{Frontend: Migrated from Angular 14 to 16 and refactored architecture to support Ionic, enabling cross-platform deployment (iOS/Android). Improved performance with lazy-loaded routing. Built a multi-step user form with dynamic validation and seamless backend integration.}
-\resumeItem{Backend: Upgraded the existing Spring Boot backend from version 2 to 3. Added endpoints to support the multi-step form, handling complex user input and session state. Integrated Firebase Cloud Messaging for targeted push notifications.}
-\resumeItem{DevOps: Created build pipelines for Android and iOS. Set up a self-hosted macOS runner to enable iOS builds.}
-\resumeItemListEnd
+		\resumeSubheading
+		{Uniwunder}{Dresden, Germany}
+		{Web Developer Working Student}{Oct 2022 -- Oct 2024}
+		\resumeItemListStart
+			\resumeItem{Frontend}
+				{Upgraded Angular 14 to 16 for enhanced security and modern features. Refactored architecture for Ionic to enable iOS/Android deployment. Improved performance with lazy-loaded routing. Built a multi-step user form with dynamic validation and seamless backend integration.}
+			\resumeItem{Backend}
+				{Updated to Spring Boot 3 for long-term support and compatibility. Added endpoints to support the multi-step form, handling complex user input and session state. Integrated Firebase Cloud Messaging for targeted push notifications.}
+			\resumeItem{DevOps}
+				{Created build pipelines for Android and iOS. Set up a self-hosted macOS runner to enable iOS builds.}
+		\resumeItemListEnd
 
-\resumeSubheading
-{IT Support Working Student – First-Level Support}{June 2021 -- September 2022}
-{Jungheinrich}{Wilsdruff, Germany}
-% \resumeItemListStart
-% \resumeItem{Provided on-site setup and support for both hardware and software, ensuring optimal system performance.}
-% \resumeItem{Configured and set up workplace environments to facilitate efficient workflows.}
-% \resumeItem{Created and maintained MS Excel macros to automate tasks and improve productivity.}
-% \resumeItem{Utilized tools such as a custom ticketing system and MS Active Directory for effective issue tracking and user management.}
-% \resumeItemListEnd
-
-% -----------Multiple Positions Heading-----------
-%    \resumeSubSubheading
-%     {Software Engineer I}{Oct 2014 - Sep 2016}
-%     \resumeItemListStart
-%        \resumeItem{Apache Beam}
-%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
-%     \resumeItemListEnd
-%    \resumeSubHeadingListEnd
-%-------------------------------------------
-
-\resumeSubHeadingListEnd
+		\resumeSubheading
+		{Jungheinrich}{Wilsdruff, Germany}
+		{First-Level Support Working Student}{Jun 2021 -- Sep 2022}
+	\resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------
 \section{Projects}
-\resumeSubHeadingListStart
-\resumeProjectHeading
-{\textbf{Kubernetes Deployment} $|$ \emph{Oracle Cloud, Kubernetes, Talos, Flux, Helm, GitOps}}{}
-\resumeItemListStart
-\resumeItem{Deployed a secure 3-node Kubernetes cluster on Oracle Cloud using Talos Linux, following GitOps practices with Flux CD and secret management via SOPS with Age.}
-\resumeItem{Provisioned a production-grade infrastructure stack with Cilium CNI, OpenEBS for persistent storage, and database operators including CloudNativePG and MongoDB.}
-\resumeItem{Automated ingress, DNS, and TLS with NGINX Ingress Controller, ExternalDNS, and Cert-Manager.}\resumeItemListEnd
 
-\resumeProjectHeading
-{\textbf{Livechat WebApp} $|$ \emph{Spring Boot, SvelteKit, MongoDB, Docker, Helm}}{}
-\resumeItemListStart
-\resumeItem{Built a live chat web application using Spring Boot and SvelteKit.}
-\resumeItem{Implemented real-time messaging via WebSockets and integrated MongoDB for data persistence.}
-\resumeItem{Developed a GraphQL API using Netflix DGS and secured the application with Spring Security and OAuth2.}
-\resumeItem{Containerized the application and created a Helm chart as a proof of concept for Kubernetes deployment.}
-\resumeItemListEnd
-\resumeSubHeadingListEnd
+	\resumeSubHeadingListStart
+		\resumeProjectSubheading
+		{Kubernetes Deployment}
+		{Oracle Cloud, Kubernetes, Talos, Flux, Helm, GitOps}
+		\resumeItemListStart
+			\resumeItemShort
+				{Provisioned a 3-node Kubernetes cluster on Oracle Cloud with Talos Linux, using GitOps via Flux CD, SOPS, and Age for secure infrastructure-as-code.}
+			\resumeItemShort
+				{Built production-grade stack with Cilium CNI, OpenEBS for persistent storage, and database operators including CloudNativePG and MongoDB.}
+			\resumeItemShort
+				{Automated ingress, DNS, and TLS with NGINX, ExternalDNS, and Cert-Manager.}
+		\resumeItemListEnd
+
+		\resumeProjectSubheading
+		{Livechat WebApp}
+		{Spring Boot, SvelteKit, MongoDB, Docker, Helm}
+		\resumeItemListStart
+			\resumeItemShort
+				{Built a live chat web application using Spring Boot WebFlux and SvelteKit.}
+			\resumeItemShort
+				{Implemented real-time messaging via WebSockets and integrated MongoDB for data persistence.}
+			\resumeItemShort
+				{Developed a GraphQL API using Netflix DGS and secured the application with Spring Security and OAuth2.}
+			\resumeItemShort
+				{Containerized the application and created a Helm chart as a proof of concept for Kubernetes deployment.}
+		\resumeItemListEnd
+
+	\resumeSubHeadingListEnd
 
 %-----------TECHNICAL SKILLS-----------
 \section{Technical Skills}
-\begin{itemize}[leftmargin=0.15in, label={}]
-	\small{\item{
-		\textbf{Languages:}{ Kotlin, Java, Go, Python, TypeScript, C++, SQL, HTML/CSS} \\
-		\textbf{Frameworks:}{ Spring Boot, Angular, SvelteKit} \\
-		\textbf{Infrastructure:}{ Kubernetes, Docker, Helm, Flux, Ansible} \\
-		\textbf{Developer Tools:}{ Git, GitHub/GitLab/Bitbucket CI/CD} \\
-	}}
-\end{itemize}
 
-%-------------------------------------------
+	\resumeSubHeadingListStart
+		\item
+		\resumeItemListStart
+			\resumeItem{Cloud-Native Development}
+				{Kubernetes, Docker, Helm, Flux, GitOps}
+			\resumeItem{Backend Engineering}
+				{Go, Java, Spring Boot, GraphQL, REST, WebSockets}
+			\resumeItem{CI/CD \& Automation}
+				{GitLab/Bitbucket Pipelines, GitHub Actions, Ansible, Cobra}
+			\resumeItem{Database \& Messaging}
+				{PostgreSQL, MySQL, MongoDB, Firebase}
+		\resumeItemListEnd
+	\resumeSubHeadingListEnd
+
 \end{document}
